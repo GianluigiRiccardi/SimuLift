@@ -1,6 +1,5 @@
 # Simulift
 Predictive lifting safety model in Simulink. Evaluates wind, impact, and overload to ensure safe crane operations.
-# SimuLift
 
 **SimuLift** is a Simulink-based predictive safety model for lifting operations.  
 It evaluates impact force, overload conditions, and wind force to determine whether a lifting operation is safe.
