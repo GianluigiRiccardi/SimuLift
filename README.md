@@ -107,11 +107,6 @@ You can safely change:
 **v1.0 (May 2025)**  
 - Initial release: complete model, 4 visual indicators, README
 
----
-
-## 🇮🇹 Versione italiana disponibile presto!
-
----
 
 ## 🛡️ License
 
