@@ -1,113 +1,97 @@
-# SimuLift
+# Simulift
 
-**SimuLift** is a Simulink-based predictive safety model for lifting operations.  
-It evaluates overload conditions, wind force, and impact risks using real-world physics formulas, returning a clear visual verdict: **“Safe to Lift”** or **“Lift Denied”**.
+**Predictive Safety Model for Lifting Operations**  
+Built in MATLAB Simulink – created by [Gianluigi Riccardi](https://www.linkedin.com/in/gianluigiriccardi)
 
----
-
-## 🚀 Introduction
-
-Heavy lifting operations, especially with cranes, involve significant safety risks — from overloading the equipment to unexpected gusts of wind or impact due to drops.  
-**SimuLift** was created to simulate these scenarios and support engineers, maintenance planners, and students in designing safer procedures.  
-It’s ideal for:
-- Safety-focused engineers
-- Industrial maintenance teams
-- Engineering students learning predictive simulation
+![Simulift Banner](docs/LiftPlan_diagram.png)
 
 ---
 
-## 🧰 How It Works
+## 🚀 Overview
 
-SimuLift is structured in 3 main analysis blocks:
+**Simulift** is a predictive safety tool designed to simulate real lifting conditions using physics-based logic.  
+It checks whether a lift is safe by evaluating:
 
-1. **Impact Force Analysis**  
-   Calculates force based on mass, height, and deformation margin.
-2. **Overload Check**  
-   Verifies total mass (payload + pulley + slings) against crane capacity with safety factor.
-3. **Wind Force Evaluation**  
-   Uses Beaufort scale to compute wind speed and resulting force on exposed area.
+- **Impact force** (from drop height & deformation)
+- **Overload** (mass vs crane capacity with safety factor)
+- **Wind force** (based on Beaufort scale)
 
-Each force is compared against thresholds.  
-Display blocks indicate if the condition is **safe**, **borderline**, or **dangerous**.
+Final verdicts like ✅ **Safe to Lift** or ❌ **Overload Detected** are clearly shown via visual displays.
 
 ---
 
-## 🖥️ Example Simulation
+## 📦 Download
 
-Imagine a scenario where a 150 kg load must be lifted during windy conditions.
-
-- Beaufort scale: 6 (Strong breeze)
-- Deformation limit: 0.2 m
-- Safety factor: 1.25
-
-Modify the constant blocks in the Simulink model accordingly.  
-Run the simulation and observe the verdict:
-- Green: Safe to lift
-- Red: One or more conditions violated
-
-> See `docs/LiftPlan_diagram.png` for a full visual overview.
+[Download the Simulink model](https://github.com/gianluigiriccardi/Simulift/raw/main/Simulift.slx)
 
 ---
 
-## 🔧 Modifiable Parameters
+## 📊 Example Scenario
 
-You can safely change:
+Lifting a 3000 kg payload during wind force 6 (Beaufort):
 
-| Parameter               | Block Name            | Effect                         |
-|------------------------|-----------------------|--------------------------------|
-| Mass of slings         | `Slings_Weight`       | Affects total weight           |
-| Mass of pulley         | `Pulley_Weight`       | Affects total weight           |
-| Payload (load)         | `Theoretical_Weight`  | Affects total weight           |
-| Safety factor          | `Safety_Factor`       | Changes overload calculation   |
-| Drop height            | `Height`              | Affects impact force           |
-| Deformation margin     | `Deformation_Limit`   | Influences impact severity     |
-| Beaufort scale         | `Beaufort_Scale`      | Determines wind speed          |
-| Exposed area           | `Exposed_Area`        | Used in wind force calculation |
+- Set slings, pulley, and load weight
+- Apply deformation limit: 0.2 m  
+- Safety Factor: 1.25  
+- Exposed area: 1.5 m²
+
+Run the model and observe the visual verdict.
 
 ---
 
-## 📤 Output Signals
+## 🔧 Parameters You Can Modify
 
-| Display Block          | Meaning                            |
-|------------------------|-------------------------------------|
-| `Impact_Status_Display` | Safe or dangerous impact force     |
-| `Overload_Status_Display` | OK load or overload risk          |
-| `Wind_Status_Display`   | Wind within or beyond safe limit   |
-| `FinalVerdict_Display`  | Overall decision to proceed or not |
-
----
-
-## 🧱 Requirements
-
-- MATLAB R2024a or newer
-- Simulink
-- No additional toolbox required
+| Parameter            | Block Name            | Affects                         |
+|---------------------|------------------------|---------------------------------|
+| Payload              | `Theoretical_Weight`   | Load force                      |
+| Pulley               | `Pulley_Weight`        | Total mass                      |
+| Slings               | `Slings_Weight`        | Total mass                      |
+| Safety Factor        | `Safety_Factor`        | Load * multiplier               |
+| Drop Height          | `Height`               | Impact energy                   |
+| Deformation limit    | `Deformation_Limit`    | Impact force                    |
+| Beaufort Scale       | `Beaufort_Scale`       | Wind speed                      |
+| Exposed Area         | `Exposed_Area`         | Wind pressure                   |
 
 ---
 
-## 📦 Installation
+## 🖥 Output Verdicts
 
-1. Clone or download the repository  
-2. Open `SimuLift.slx` in MATLAB Simulink  
-3. Modify constants as needed  
-4. Run the simulation and observe safety indicators
+- **Green = OK**
+- **Red = Alarm**
+
+| Display Block         | Shows                  |
+|-----------------------|------------------------|
+| `Impact_Status`       | Impact risk            |
+| `Overload_Status`     | Load/capacity risk     |
+| `Wind_Status`         | Wind force condition   |
+| `FinalVerdict_Display`| Global lift verdict    |
 
 ---
 
 ## 📚 Resources
 
-- [MathWorks: Simulink documentation](https://www.mathworks.com/help/simulink/)
-- [Beaufort wind scale](https://en.wikipedia.org/wiki/Beaufort_scale)
-- [Crane lifting standards (OSHA)](https://www.osha.gov/cranes-derricks)
+- [Simulink Documentation](https://www.mathworks.com/help/simulink/)
+- [Beaufort Wind Scale](https://en.wikipedia.org/wiki/Beaufort_scale)
+- [OSHA Crane Lifting Standards](https://www.osha.gov/cranes-derricks)
 
 ---
 
 ## 🔄 Changelog
 
-**v1.0 (May 2025)**  
-- Initial release: complete model, 4 visual indicators, README
+**v1.0 – May 2025**  
+- Full predictive model  
+- 3 safety subsystems  
+- GitHub Pages and documentation added
 
+---
+
+## 🌐 GitHub Page
+
+View the public version of this project:  
+**[https://gianluigiriccardi.github.io/Simulift/](https://gianluigiriccardi.github.io/Simulift/)**
+
+---
 
 ## 🛡️ License
 
-MIT License – free to use and adapt.
+MIT License – use, adapt, and contribute freely.
