@@ -79,8 +79,8 @@ That’s **almost 800 kgf**, potentially enough to damage another pipe, especial
 
 ## 🖥 Output Verdicts
 
-- **Green = OK**
-- **Red = Alarm**
+- **OK**
+- **Alarm**
 
 | Display Block         | Shows                  |
 |-----------------------|------------------------|
