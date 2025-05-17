@@ -88,7 +88,7 @@ Run the model and observe the visual verdict.
 ## 🌐 GitHub Page
 
 View the public version of this project:  
-**[https://gianluigiriccardi.github.io/Simulift/](https://gianluigiriccardi.github.io/Simulift/)**
+https://gianluigiriccardi.github.io/SimuLift/
 
 ---
 
