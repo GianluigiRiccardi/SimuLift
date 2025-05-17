@@ -3,7 +3,7 @@
 **Predictive Safety Model for Lifting Operations**  
 Built in MATLAB Simulink – created by [Gianluigi Riccardi](https://www.linkedin.com/in/gianluigiriccardi)
 
-![Banner](https://github.com/GianluigiRiccardi/SimuLift/raw/main/img/Simulift.png)
+![Banner](https://github.com/GianluigiRiccardi/Simulift/raw/main/img/Simulift.png)
 
 ---
 
