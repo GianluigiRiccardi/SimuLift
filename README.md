@@ -22,7 +22,7 @@ Final verdicts like ✅ **Safe to Lift** or ❌ **Overload Detected** are clearl
 
 ## 📦 Download
 
-[Download the Simulink model](https://github.com/gianluigiriccardi/SimuLift/raw/main/SimuLift.slx)   
+[Download SimuLift.slx](https://github.com/GianluigiRiccardi/SimuLift/raw/main/Simulift/SimuLift.slx)
 
 ---
 
