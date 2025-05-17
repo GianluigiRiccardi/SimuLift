@@ -39,6 +39,29 @@ Run the model and observe the visual verdict.
 
 ---
 
+### ⚠️ Impact Force – Engineering Note
+
+The impact force is calculated using the simplified physics formula:
+F = (m · g · h) / Δs
+
+Where:  
+- `m` = mass of the object  
+- `g` = gravitational acceleration  
+- `h` = drop height  
+- `Δs` = deformation or stop distance
+
+This formula estimates the **maximum instantaneous force** transmitted during an impact.
+
+Even a **40 kg pipe falling from 2 meters** with only **1 cm of deformation** can generate:
+
+F = (40 · 9.81 · 2) / 0.01 = 7848 N
+
+That’s **almost 800 kgf**, potentially enough to damage another pipe, especially if the contact point is narrow or the material is rigid.
+
+**SimuLift uses this conservative approach** to highlight real industrial risks often underestimated during field operations.
+
+---
+
 ## 🔧 Parameters You Can Modify
 
 | Parameter            | Block Name            | Affects                         |
