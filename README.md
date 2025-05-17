@@ -1,5 +1,11 @@
 # Simulift
 
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+![MATLAB](https://img.shields.io/badge/Made%20with-MATLAB-blue)
+![Last Commit](https://img.shields.io/github/last-commit/GianluigiRiccardi/SimuLift)
+![Repo Size](https://img.shields.io/github/repo-size/GianluigiRiccardi/SimuLift)
+
+
 **Predictive Safety Model for Lifting Operations**  
 Built in MATLAB Simulink – created by [Gianluigi Riccardi](https://www.linkedin.com/in/gianluigiriccardi)
 
