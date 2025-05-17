@@ -22,7 +22,9 @@ Final verdicts like ✅ **Safe to Lift** or ❌ **Overload Detected** are clearl
 
 ## 📦 Download
 
-[Download SimuLift.slx](https://github.com/GianluigiRiccardi/SimuLift/raw/main/Simulift/SimuLift.slx)
+<a href="https://github.com/GianluigiRiccardi/SimuLift/raw/main/SimuLift%20(4).slx" download>
+  <button>Download SimuLift (4).slx</button>
+</a>
 
 ---
 
