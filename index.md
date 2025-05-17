@@ -16,7 +16,7 @@ Simulift is a MATLAB Simulink model that evaluates whether a lifting operation i
 
 ## 🖼️ Overview
 
-<img src="docs/LiftPlan_diagram.png" alt="Simulink model diagram" style="max-width:100%; border:1px solid #ccc; border-radius:6px;">
+![Simulift](https://gianluigiriccardi.github.io/SimuLift/Simulift.png)
 
 ---
 
