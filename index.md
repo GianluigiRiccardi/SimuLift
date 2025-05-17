@@ -29,7 +29,9 @@ Simulift is a MATLAB Simulink model that evaluates whether a lifting operation i
 
 ---
 
-## 📥 [Download Simulink Model](https://github.com/GianluigiRiccardi/SimuLift/raw/main/SimuLift.slx)
+## 📥 <a href="https://github.com/GianluigiRiccardi/SimuLift/raw/main/SimuLift%20(4).slx" download>
+  <button>Download SimuLift (4).slx</button>
+</a>
 
 
 ---
