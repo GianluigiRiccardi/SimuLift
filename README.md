@@ -26,11 +26,34 @@ Final verdicts like ✅ **Safe to Lift** or ❌ **Overload Detected** are clearl
 
 ---
 
-## 📦 Download
+## 📦 Download & Quick Start
 
 <a href="https://github.com/GianluigiRiccardi/SimuLift/raw/main/SimuLift%20(4).slx" download>
   <button>Download SimuLift (4).slx</button>
 </a>
+
+**New!** 🎉 **Automated Scripts Available**
+
+SimuLift now includes MATLAB automation scripts for easier usage:
+- **`run_simulift.m`** - Main entry point with predefined scenarios
+- **`SimuLiftUtils.m`** - Utility functions for calculations
+- **`test_simulift.m`** - Validation test suite
+- **`examples.m`** - Usage examples and demonstrations
+
+See [QUICKSTART.md](QUICKSTART.md) for detailed usage instructions.
+
+### Quick Usage
+```matlab
+% Run with default scenario
+run_simulift()
+
+% Run predefined scenarios
+run_simulift('scenario', 'light_load')
+run_simulift('scenario', 'heavy_wind')
+
+% Run validation tests
+test_simulift()
+```
 
 ---
 
@@ -101,9 +124,30 @@ That’s **almost 800 kgf**, potentially enough to damage another pipe, especial
 
 ## 📚 Resources
 
+- [Quick Start Guide](QUICKSTART.md) - Get started quickly with automated scripts
 - [Simulink Documentation](https://www.mathworks.com/help/simulink/)
 - [Beaufort Wind Scale](https://en.wikipedia.org/wiki/Beaufort_scale)
 - [OSHA Crane Lifting Standards](https://www.osha.gov/cranes-derricks)
+
+---
+
+## 🆕 New Features (v1.1)
+
+- **Automated scripts** for programmatic simulation control
+- **Predefined scenarios** (light load, heavy load, high wind, critical)
+- **Utility functions** for standalone calculations
+- **Comprehensive test suite** for validation
+- **Example scripts** demonstrating various use cases
+- **Safety report generation** with detailed analysis
+- **Batch processing** capabilities for multiple scenarios
+
+---
+
+## 📖 Documentation
+
+- **[QUICKSTART.md](QUICKSTART.md)** - Quick start guide with examples
+- **[README_SimuLift.md](README_SimuLift.md)** - Detailed technical documentation
+- **[examples.m](examples.m)** - Interactive examples and demonstrations
 
 ---
 

@@ -1,0 +1,26 @@
+# MATLAB autosave files
+*.asv
+*.autosave
+
+# Simulink autosave
+*.slxc
+slprj/
+
+# Code generation folders
+codegen/
+
+# Build results
+*.mexw64
+*.mexw32
+*.mexa64
+*.mexmaci64
+
+# Cache
+*.mldatx
+
+# Working directory
+work/
+
+# Temporary files
+*.tmp
+~*
