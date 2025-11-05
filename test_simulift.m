@@ -84,19 +84,23 @@ function test_simulift()
     
     %% Test 4: Impact force calculation
     fprintf('Test 4: Impact Force Calculation...\n');
-    % 40 kg pipe, 2m drop, 1cm deformation should give ~78,480 N
-    impact = SimuLiftUtils.calculate_impact_force(40, 2, 0.01);
-    expected = 78480;  % N
-    tolerance = 100;   % N
+    % Test case: pipe falling scenario from README example
+    test_mass = 40;          % kg - mass of pipe
+    test_height = 2;         % m - drop height
+    test_deformation = 0.01; % m - deformation (1 cm)
+    expected_force = 78480;  % N - calculated: (40 * 9.81 * 2) / 0.01
+    force_tolerance = 100;   % N - acceptable error margin
+    
+    impact = SimuLiftUtils.calculate_impact_force(test_mass, test_height, test_deformation);
     
     total_tests = total_tests + 1;
-    if abs(impact - expected) < tolerance
+    if abs(impact - expected_force) < force_tolerance
         fprintf('  ✅ PASSED - Impact force: %.2f N (expected ~%.2f N)\n\n', ...
-                impact, expected);
+                impact, expected_force);
         passed_tests = passed_tests + 1;
     else
         fprintf('  ❌ FAILED - Impact force: %.2f N (expected ~%.2f N)\n\n', ...
-                impact, expected);
+                impact, expected_force);
     end
     
     %% Test 5: Beaufort scale conversion

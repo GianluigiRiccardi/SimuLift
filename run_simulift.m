@@ -30,12 +30,26 @@ function run_simulift(varargin)
     verbose = p.Results.verbose;
     
     % Check if Simulink model exists
-    if ~exist(modelPath, 'file')
-        % Try alternative path
-        modelPath = 'SimuLift (4).slx';
-        if ~exist(modelPath, 'file')
-            error('SimuLift:ModelNotFound', 'Cannot find SimuLift model file');
+    % Try multiple possible model locations
+    possible_paths = {
+        modelPath,
+        'Simulift/SimuLift.slx',
+        'SimuLift (4).slx'  % Legacy filename
+    };
+    
+    modelFound = false;
+    for i = 1:length(possible_paths)
+        if exist(possible_paths{i}, 'file')
+            modelPath = possible_paths{i};
+            modelFound = true;
+            break;
         end
+    end
+    
+    if ~modelFound
+        error('SimuLift:ModelNotFound', ...
+              'Cannot find SimuLift model file. Tried: %s', ...
+              strjoin(possible_paths, ', '));
     end
     
     % Load configuration
