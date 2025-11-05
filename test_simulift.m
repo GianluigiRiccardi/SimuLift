@@ -84,10 +84,10 @@ function test_simulift()
     
     %% Test 4: Impact force calculation
     fprintf('Test 4: Impact Force Calculation...\n');
-    % 40 kg pipe, 2m drop, 1cm deformation should give ~7848 N
+    % 40 kg pipe, 2m drop, 1cm deformation should give ~78,480 N
     impact = SimuLiftUtils.calculate_impact_force(40, 2, 0.01);
-    expected = 7848;  % N
-    tolerance = 10;   % N
+    expected = 78480;  % N
+    tolerance = 100;   % N
     
     total_tests = total_tests + 1;
     if abs(impact - expected) < tolerance

@@ -85,7 +85,7 @@ This formula estimates the **maximum instantaneous force** transmitted during an
 
 Even a **40 kg pipe falling from 2 meters** with only **1 cm of deformation** can generate:
 
-F = (40 · 9.81 · 2) / 0.01 = 7848 N
+F = (40 · 9.81 · 2) / 0.01 = 78,480 N
 
 That’s **almost 800 kgf**, potentially enough to damage another pipe, especially if the contact point is narrow or the material is rigid.
 
