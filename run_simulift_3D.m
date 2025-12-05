@@ -526,7 +526,8 @@ function create_3D_model_structure(modelPath, config)
 end
 
 function result = iif(condition, true_val, false_val)
-    % IIF Inline if function
+    % IIF Inline if function (helper for readable conditional assignment)
+    % Note: Defined locally in multiple files for self-containment
     if condition
         result = true_val;
     else

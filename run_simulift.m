@@ -29,25 +29,19 @@ function run_simulift(varargin)
     
     % Parse inputs
     p = inputParser;
+    p.CaseSensitive = false;  % Make parameter names case-insensitive
     addParameter(p, 'config', [], @isstruct);
     addParameter(p, 'scenario', 'default', @ischar);
-    addParameter(p, 'Scenario', 'default', @ischar);  % Alternative capitalization
     addParameter(p, 'model', 'Simulift/SimuLift.slx', @ischar);
     addParameter(p, 'verbose', true, @islogical);
-    addParameter(p, 'Use3D', false, @islogical);  % New parameter for 3D simulation
-    addParameter(p, 'use3d', false, @islogical);  % Alternative lowercase
+    addParameter(p, 'Use3D', false, @islogical);  % Parameter for 3D simulation
     parse(p, varargin{:});
     
     config = p.Results.config;
-    % Support both 'scenario' and 'Scenario' (case-insensitive)
     scenario = p.Results.scenario;
-    if ~strcmp(p.Results.Scenario, 'default')
-        scenario = p.Results.Scenario;
-    end
     modelPath = p.Results.model;
     verbose = p.Results.verbose;
-    % Support both 'Use3D' and 'use3d' (case-insensitive)
-    use3D = p.Results.Use3D || p.Results.use3d;
+    use3D = p.Results.Use3D;
     
     % Check if Simulink model exists
     % Try multiple possible model locations
