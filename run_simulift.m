@@ -10,24 +10,38 @@ function run_simulift(varargin)
     %   run_simulift() - Interactive mode with default parameters
     %   run_simulift('config', params) - Run with custom parameters
     %   run_simulift('scenario', scenario_name) - Run predefined scenario
+    %   run_simulift('Scenario', scenario_name, 'Use3D', true) - Run 3D simulation
+    %
+    % Parameters:
+    %   'config'   - Structure with simulation parameters (optional)
+    %   'scenario' - Predefined scenario name: 'default', 'light_load', 
+    %                'heavy_load', 'heavy_wind', 'critical'
+    %   'Use3D'    - Boolean flag to use 3D Simscape Multibody model (default: false)
+    %   'model'    - Path to Simulink model (optional)
+    %   'verbose'  - Display detailed output (default: true)
     %
     % Examples:
     %   run_simulift()
     %   run_simulift('scenario', 'light_load')
     %   run_simulift('scenario', 'heavy_wind')
+    %   run_simulift('Scenario', 'heavy_load', 'Use3D', true)  % 3D mode
+    %   run_simulift('scenario', 'default', 'use3d', true)     % 3D mode (case-insensitive)
     
     % Parse inputs
     p = inputParser;
+    p.CaseSensitive = false;  % Make parameter names case-insensitive
     addParameter(p, 'config', [], @isstruct);
     addParameter(p, 'scenario', 'default', @ischar);
     addParameter(p, 'model', 'Simulift/SimuLift.slx', @ischar);
     addParameter(p, 'verbose', true, @islogical);
+    addParameter(p, 'Use3D', false, @islogical);  % Parameter for 3D simulation
     parse(p, varargin{:});
     
     config = p.Results.config;
     scenario = p.Results.scenario;
     modelPath = p.Results.model;
     verbose = p.Results.verbose;
+    use3D = p.Results.Use3D;
     
     % Check if Simulink model exists
     % Try multiple possible model locations
@@ -59,6 +73,19 @@ function run_simulift(varargin)
         else
             config = get_scenario_config(scenario);
         end
+    end
+    
+    % Check if 3D mode is requested
+    if use3D
+        % Delegate to 3D simulation function
+        if verbose
+            fprintf('\n========================================\n');
+            fprintf('  SimuLift - 3D Mode Requested\n');
+            fprintf('========================================\n\n');
+            fprintf('Redirecting to 3D Simscape Multibody simulation...\n\n');
+        end
+        run_simulift_3D('scenario', scenario, 'config', config, 'verbose', verbose);
+        return;
     end
     
     if verbose

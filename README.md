@@ -51,8 +51,12 @@ run_simulift()
 run_simulift('scenario', 'light_load')
 run_simulift('scenario', 'heavy_wind')
 
+% Run 3D simulation (requires SimuLift_3D.slx)
+run_simulift('Scenario', 'heavy_load', 'Use3D', true)
+
 % Run validation tests
 test_simulift()
+test_simulift_3D()  % Test 3D functionality
 ```
 
 ---
@@ -141,17 +145,36 @@ That’s **almost 800 kgf**, potentially enough to damage another pipe, especial
 - **Safety report generation** with detailed analysis
 - **Batch processing** capabilities for multiple scenarios
 
+## 🆕 New Features (v1.2) - 3D Simscape Multibody
+
+- **3D lifting simulation** using Simscape Multibody
+- **Full dynamic visualization** with Mechanics Explorer
+- **Realistic cable/sling dynamics** with flexible constraints
+- **Wind force modeling** with aerodynamic drag
+- **Multi-body interactions** for accurate payload motion
+- **3D-specific parameters** for geometry and physics
+- **Seamless 2D/3D integration** via `Use3D` parameter
+
 ---
 
 ## 📖 Documentation
 
 - **[QUICKSTART.md](QUICKSTART.md)** - Quick start guide with examples
 - **[README_SimuLift.md](README_SimuLift.md)** - Detailed technical documentation
+- **[SIMULIFT_3D_GUIDE.md](SIMULIFT_3D_GUIDE.md)** - Complete 3D Simscape Multibody guide
 - **[examples.m](examples.m)** - Interactive examples and demonstrations
+- **[examples_3D.m](examples_3D.m)** - 3D-specific examples and scenarios
 
 ---
 
 ## 🔄 Changelog
+
+**v1.2 – December 2025**
+- 3D Simscape Multibody integration
+- Full dynamic simulation with cable/sling physics
+- Wind force modeling with aerodynamic drag
+- 3D visualization and animation
+- Updated documentation and examples
 
 **v1.0 – May 2025**  
 - Full predictive model  
