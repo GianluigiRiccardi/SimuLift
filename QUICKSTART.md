@@ -49,6 +49,18 @@ run_simulift('scenario', 'heavy_wind')    % High wind conditions
 run_simulift('scenario', 'critical')      % Critical multi-risk scenario
 ```
 
+#### Run 3D Simscape Multibody Simulations (New!)
+```matlab
+% Use the 3D physics-based model
+run_simulift('Scenario', 'heavy_load', 'Use3D', true)
+
+% Or directly
+run_simulift_3D('scenario', 'heavy_load')
+
+% Note: Requires SimuLift_3D.slx model to be created
+% See SIMULIFT_3D_GUIDE.md for instructions
+```
+
 #### Run with Custom Configuration
 ```matlab
 config = struct(...
@@ -93,7 +105,8 @@ SimuLiftUtils.print_report(report);
 
 ### Run Validation Tests
 ```matlab
-test_simulift()
+test_simulift()      % Test 2D functionality
+test_simulift_3D()   % Test 3D functionality
 ```
 
 This runs a comprehensive test suite including:
@@ -103,10 +116,12 @@ This runs a comprehensive test suite including:
 - Impact force calculations
 - Beaufort scale conversions
 - Critical multi-risk scenarios
+- 3D geometry and dynamics (3D tests)
 
 ### Run Examples
 ```matlab
-examples
+examples      % 2D examples
+examples_3D   % 3D examples
 ```
 
 This demonstrates:
@@ -117,6 +132,7 @@ This demonstrates:
 - Safety factor effects
 - Real-world scenarios
 - Batch analysis
+- 3D-specific features (geometry, sling dynamics, visualization)
 
 ---
 
@@ -221,8 +237,10 @@ run_simulift('scenario', 'heavy_wind')
 
 - [Full Documentation](README.md)
 - [Technical Details](README_SimuLift.md)
+- [3D Simscape Multibody Guide](SIMULIFT_3D_GUIDE.md) - **New!**
 - [GitHub Page](https://gianluigiriccardi.github.io/SimuLift/)
 - [MATLAB Simulink Docs](https://www.mathworks.com/help/simulink/)
+- [Simscape Multibody Docs](https://www.mathworks.com/help/sm/)
 - [Beaufort Scale](https://en.wikipedia.org/wiki/Beaufort_scale)
 - [OSHA Crane Standards](https://www.osha.gov/cranes-derricks)
 
