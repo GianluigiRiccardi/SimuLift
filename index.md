@@ -39,6 +39,10 @@ h2{font-size:1.5rem;font-weight:700;font-stretch:110%;color:var(--petrol);margin
 .steps li{margin:0 0 .9rem;padding-left:.3rem}
 .steps li::marker{color:var(--petrol);font-weight:700}
 code{font-size:.9em;background:var(--paper);padding:.05rem .3rem;border-radius:2px}
+.model{margin:2rem -1.25rem 0;}
+.model img{display:block;width:100%;height:auto;border:1px solid var(--rule);background:#fff}
+.model figcaption{font-size:.95rem;color:var(--steel);margin:.6rem 1.25rem 0}
+@media (min-width:900px){.model{margin:2.5rem -8rem 0}.model figcaption{margin-left:8rem;margin-right:8rem}}
 .note{border:1px solid var(--rule);border-left:4px solid var(--amber);padding:1rem 1.2rem;background:var(--paper);margin:1.5rem 0}
 .note p{margin:0}
 footer{border-top:1px solid var(--rule);background:var(--paper)}
@@ -58,6 +62,11 @@ footer .wrap{padding:2.5rem 1.25rem 3rem;font-size:1rem;color:var(--steel)}
   <div class="wrap">
     <p class="lead">SimuLift is a Simulink model that runs three physics checks on a planned lift and returns a verdict before anyone hooks the load.</p>
     <p>It was built for safety-critical industrial sites, where a lift is approved on paper and executed in conditions that can drift from the plan: a heavier rigging set, a stronger wind, a load that could drop further than expected. SimuLift makes those three variables explicit and shows, check by check, which one would stop the lift.</p>
+
+    <figure class="model">
+      <a href="SimuLift_v1_2.png"><img src="SimuLift_v1_2.png" alt="The SimuLift v1.2 Simulink model: force analysis, overload check and wind force calculation, each with a status lamp, and a final lamp with the global verdict" width="1284" height="717"></a>
+      <figcaption>The v1.2 model. Three checks run in parallel; each drives a lamp, and the final logic turns the global verdict red if any check fails.</figcaption>
+    </figure>
 
     <h2>What it checks</h2>
     <div class="check"><b>Impact</b><p>The force of a dropped load, from the energy released over the deformation distance: <span class="formula">F = m·g·h / δ</span>, compared with an admissible threshold.</p></div>
