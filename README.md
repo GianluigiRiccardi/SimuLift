@@ -7,9 +7,31 @@
 
 
 **Predictive Safety Model for Lifting Operations**  
-Built in MATLAB Simulink – created by [Gianluigi Riccardi](https://www.linkedin.com/in/gianluigiriccardi)
+Built in MATLAB Simulink – created by [Gianluigi Riccardi](https://www.linkedin.com/in/gianluigi-riccardi-ai-industrial)
 
 ![Simulift](https://gianluigiriccardi.github.io/SimuLift/Simulift.png)
+
+---
+
+## What's new in v1.2
+
+- **Status lamps.** `SimuLift_v1_2_WithLamps.slx` adds one lamp per check (impact, overload, wind) and a final lamp for the global verdict, so the outcome is readable at a glance.
+- **Lift data from Excel.** `SimuLift_Dati_Sollevamento.xlsx` is the single input template: fill in the values of a lift and run `simulift_import_excel` to write them into the model blocks. A copy of the model with the updated values is saved next to the original.
+- **2D animation.** `simulift_animate_2d` reads the same Excel file, recomputes the three checks with the same formulas and thresholds as the model and shows a simple scene: crane, load being lifted, wind and the verdict. `SimuLift_WithAnimation.slx` opens it from a block inside the model.
+
+```matlab
+% Write the Excel values into the model (saves SimuLift_v1_2_WithLamps_aggiornato.slx)
+simulift_import_excel('SimuLift_Dati_Sollevamento.xlsx', 'SimuLift_v1_2_WithLamps.slx')
+
+% Run the 2D animation, optionally saving a GIF
+simulift_animate_2d('SimuLift_Dati_Sollevamento.xlsx', true)
+```
+
+The v1.0 model (`SimuLift (4).slx`) and the v1.1 scripts remain in the repository unchanged.
+
+**Note on the impact check.** The impact criterion models a full drop of the load from `Drop_Height` onto a surface that deforms by `Deformation_Limit`. With the template values (1460 kg total, 10 m, 0.2 m) it gives about 716 kN against a 25 kN threshold, so the global verdict is LIFT DENIED by design. It is a worst-case awareness check, not a verdict on a normal lift: adapt the drop height, the deformation and the threshold to the scenario you want to assess.
+
+**Limits.** SimuLift is a demonstration and research tool. It does not replace a lift plan, the crane load charts, a competent person's assessment or the applicable standards.
 
 ---
 
@@ -152,6 +174,11 @@ That’s **almost 800 kgf**, potentially enough to damage another pipe, especial
 ---
 
 ## 🔄 Changelog
+
+**v1.2 – 2026**  
+- Status lamps per check and global verdict  
+- Excel input template and import script  
+- 2D animation driven by the same data and formulas
 
 **v1.0 – May 2025**  
 - Full predictive model  
