@@ -54,7 +54,7 @@ footer .wrap{padding:2.5rem 1.25rem 3rem;font-size:1rem;color:var(--steel)}
   <div class="wrap">
     <h1>SimuLift</h1>
     <p class="tag">Check a lift before you make it</p>
-    <a class="btn primary" href="https://github.com/GianluigiRiccardi/SimuLift/raw/main/SimuLift_v1_2_WithLamps.slx">Download the model (v1.2)</a>
+    <a class="btn primary" href="https://github.com/GianluigiRiccardi/SimuLift/archive/refs/heads/main.zip">Download everything (ZIP)</a>
     <a class="btn secondary" href="https://github.com/GianluigiRiccardi/SimuLift">View the code on GitHub</a>
   </div>
 </header>
@@ -75,7 +75,7 @@ footer .wrap{padding:2.5rem 1.25rem 3rem;font-size:1rem;color:var(--steel)}
 
     <h2>How to use it</h2>
     <ol class="steps">
-      <li>Fill in the lift data in <code>SimuLift_Dati_Sollevamento.xlsx</code>: load, hook block, slings, safety factor, drop height, deformation, Beaufort force, exposed area and crane capacity.</li>
+      <li>Fill in the lift data in <code>SimuLift_Dati_Sollevamento.xlsx</code>: load, hook block, slings, safety factor, drop height, deformation, Beaufort force, exposed area and crane capacity. Only the yellow cells are edited, so whoever plans the lift can prepare the check without opening Simulink.</li>
       <li>Run <code>simulift_import_excel</code> to write the values into the model.</li>
       <li>Open <code>SimuLift_v1_2_WithLamps.slx</code> and run it: one lamp per check and a final lamp give the verdict.</li>
       <li>Run <code>simulift_animate_2d</code> for a 2D scene of the lift computed from the same data.</li>

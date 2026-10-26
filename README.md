@@ -27,6 +27,24 @@ simulift_import_excel('SimuLift_Dati_Sollevamento.xlsx', 'SimuLift_v1_2_WithLamp
 simulift_animate_2d('SimuLift_Dati_Sollevamento.xlsx', true)
 ```
 
+### The Excel input template
+
+`SimuLift_Dati_Sollevamento.xlsx` lets whoever plans the lift prepare the check without opening Simulink. Fill in only the yellow cells in the "Valore" column; do not edit the "Blocco Simulink" column, which holds the exact name of the block each value is written to.
+
+| Parameter | Simulink block | Unit | Template value |
+|---|---|---|---|
+| Load to lift | `Theoretical_Weight` | kg | 1000 |
+| Hook block | `Pulley_weight` | kg | 360 |
+| Chains or slings | `Slings_weight` | kg | 100 |
+| Safety factor | `Safety_factor` | - | 1.25 |
+| Drop height | `Drop_Height` | m | 10 |
+| Admissible deformation | `Deformation_Limit` | m | 0.2 |
+| Wind (Beaufort scale) | `Beaufort_scale` | 0-12 | 3 |
+| Area exposed to wind | `Exposed_surface_area` | m² | 3 |
+| Crane capacity at the working radius | `Crane_Capacity` | kg | 7500 |
+
+`simulift_import_excel` reads the sheet "Dati Sollevamento", writes each value into the matching Constant block and saves a copy of the model with `_aggiornato` in the name, leaving the original untouched. The same file drives `simulift_animate_2d`, so the animation always shows the same lift as the model. The template values are examples: replace them with the data of the actual lift.
+
 The v1.0 model (`SimuLift (4).slx`) and the v1.1 scripts remain in the repository unchanged.
 
 **Note on the impact check.** The impact criterion models a full drop of the load from `Drop_Height` onto a surface that deforms by `Deformation_Limit`. With the template values (1460 kg total, 10 m, 0.2 m) it gives about 716 kN against a 25 kN threshold, so the global verdict is LIFT DENIED by design. It is a worst-case awareness check, not a verdict on a normal lift: adapt the drop height, the deformation and the threshold to the scenario you want to assess.
@@ -50,9 +68,9 @@ Final verdicts like ✅ **Safe to Lift** or ❌ **Overload Detected** are clearl
 
 ## 📦 Download & Quick Start
 
-<a href="https://github.com/GianluigiRiccardi/SimuLift/raw/main/SimuLift%20(4).slx" download>
-  <button>Download SimuLift (4).slx</button>
-</a>
+**[Download everything (ZIP)](https://github.com/GianluigiRiccardi/SimuLift/archive/refs/heads/main.zip)**: v1.2 model, Excel template and scripts in one package.
+
+Looking for the original v1.0 model? [Download SimuLift (4).slx](https://github.com/GianluigiRiccardi/SimuLift/raw/main/SimuLift%20(4).slx).
 
 **New!** 🎉 **Automated Scripts Available**
 
