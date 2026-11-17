@@ -24,3 +24,11 @@ work/
 # Temporary files
 *.tmp
 ~*
+
+# MATLAB Drive / Windows
+.MATLABDriveTag
+desktop.ini
+Thumbs.db
+
+# Generated documents (the published example is in docs/)
+output/
